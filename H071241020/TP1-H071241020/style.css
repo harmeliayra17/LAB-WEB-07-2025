@@ -1,0 +1,83 @@
+/* Gaya dasar untuk seluruh halaman */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    height: 100%;
+    color: #333;
+}
+
+/* Gaya untuk bagian header */
+header {
+    background: #333;
+    color: #fff;
+    padding :1rem;
+    padding-left: 2rem;
+    top:0;
+    padding-right:2rem;
+    display: flex; /* Menggunakan Flexbox untuk tata letak */
+    justify-content: space-between;
+    position: fixed;
+    width: 100%;
+    /* align-items: center; */
+    /* padding: 0 2rem; */
+}
+
+header h1 {
+    margin: 0;
+
+}
+header nav{
+    padding-right: 6rem;
+}
+
+header nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+header nav ul li {
+    margin-left: 20px;
+}
+
+header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Gaya untuk bagian main */
+main {
+    padding: 2rem;
+    margin-top:5rem;
+    height: 100%;
+    margin-bottom: 10rem;
+}
+
+/* Gaya untuk bagian footer */
+footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    margin-top: 6rem;
+}
+
+.social-links a {
+    color: #fff;
+    margin: 0 10px;
+    text-decoration: none;
+}
+.profile-photo {
+    width: 200px;
+    height: 200px; /* Opsional: Atur tinggi agar proporsional */
+    object-fit: cover; /* Memastikan gambar tetap proporsional dan terisi penuh */
+    border-radius: 50%; /* Membuat foto menjadi bulat (opsional) */
+}
