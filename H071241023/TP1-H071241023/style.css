@@ -1,0 +1,265 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    min-height:100vh;
+    margin-top: 70px;
+    margin-left: 70px;
+    margin-right: 70px;
+    background-image: linear-gradient(1deg,
+    #ffffff 0%,
+    #faf8ff 20%,
+    #f2eeff 45%,
+    #e9ddff 75%,
+    #e1d2ff 100%
+    );
+}
+
+.profileSection{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+}
+
+.subJudul, .contactHeader{
+    color:#6246ea;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.subJudul.subJudul-about{
+    margin-top: 70px;
+}
+
+nav{
+    --pad:4px; --radius:6px;
+    position:fixed;
+    top:12px;
+    right:12px;
+    display:flex;
+    width:min(100%,360px);
+    margin:0 auto;
+    padding:var(--pad);
+    background:rgba(255,255,255,0.2);
+    border-radius:var(--radius);
+}
+
+nav a{
+    position:relative;
+    display:flex;
+    flex:1;
+    align-items:center;
+    justify-content:center;
+    min-height:30px;
+    padding:0 8px;
+    font-weight:600;
+    font-size:.9em;
+    color:#2e2e2e;
+    text-decoration:none;
+}
+
+nav span{
+    position:absolute;
+    bottom:var(--pad);
+    left:var(--pad);
+    width:calc((100% - var(--pad)*2)/3);
+    height:3px;
+    background:#6246ea;
+    border-radius:calc(var(--radius) - var(--pad));
+}
+
+.page-home nav span{ transform:translateX(0%); }
+.page-about nav span{ transform:translateX(100%); }
+.bodyContact nav span{ transform:translateX(200%); }
+
+nav a{ opacity:.7; }
+.page-home  nav a:nth-child(1),
+.page-about nav a:nth-child(2),
+.bodyContact nav a:nth-child(3){
+    opacity:1;
+    font-weight:700;
+}
+
+.avatar{
+    margin-top:1rem;
+    margin-bottom:.5rem;
+    width:clamp(100px,90vw,150px);
+    aspect-ratio:1;
+    object-fit:cover;
+    border-radius:999px;
+    border:3px solid rgba(255,255,255,.9);
+    box-shadow:0 10px 30px rgba(0,0,0,.25);
+}
+
+.logo{
+    position: absolute;
+    top: 10px;
+    left: 35px;
+    width: 180px;
+}
+
+.motto{ margin:0 0 10px 0; opacity:.95; font-weight:400; color: #2b2c34;}
+
+footer{ background-color:#000000; }
+
+.footerContainer{
+    width:100%;
+    padding:70px 30px 20px;
+}
+
+.socialIcon{
+    display:flex;
+    justify-content:center;
+    gap:12px;
+    padding:10px 0;
+}
+
+.socialIcon a{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width:44px;
+    height:44px;
+    background:#6246ea;
+    border-radius:50%;
+    text-decoration:none;
+    padding:0;
+}
+
+.socialIcon a i{
+    font-size:1.5em;
+    color:#fffffe;
+    opacity:.9;
+}
+
+.socialIcon a:hover{ background-color:#937ff8; }
+
+.footerBottom{
+    background-color: none;
+    padding:2px;
+    text-align:center;
+    color: #e45858;
+}
+
+.container{
+    width:80%;
+    background:#d1d1e9;
+    border-radius:6px;
+    padding:40px;
+    margin-top:20px;
+    margin: 20px auto;
+}
+
+.container .content{
+    display:flex;
+    align-items:center;
+}
+
+.contactHeader {
+    text-align: center;
+}
+
+.container .content .tableContact .trContact .thContact{
+    font-size:10px;
+    color: #2b2c34;
+}
+
+.container .content .tableContact .trContact .thContact i{
+    font-size:30px;
+    margin-bottom:10px;
+    margin-top:20px;
+}
+
+.container .content .formContact{
+    margin-left:75px;
+}
+
+.formContact{
+    display:grid;
+    font-size:12px;
+    grid-template-columns:140px 1fr;
+    align-items:center;
+}
+
+.formContact label{
+    font-size:14px;
+    font-weight:600;
+}
+
+input{
+    height:65%;
+    width:100%;
+    margin:12px 0;
+    border-radius:6px;
+    border-color:#6246ea;
+}
+
+.formContact .radioRow label{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    font-weight:600;
+    color:#2b2c34;
+}
+
+.formContact .radioRow input[type="radio"]{
+    accent-color:#6246ea;
+}
+
+.formContact .agreeRow{
+    grid-column:2;
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.formContact .agreeRow input[type="checkbox"]{
+    accent-color:#6246ea;
+    width:20px;
+    height:20px;
+}
+
+.formContact .agreeRow label{
+    margin:0;
+    font-weight:600;
+    color:#2b2c34;
+}
+
+@media screen and (max-width: 768px) {
+    .container .content {
+        flex-direction: column;
+    }
+}
+
+.page-about{
+    min-height:100vh;
+    display:grid;
+}
+
+.tableAbout, .tableHome{
+    margin-top:10px;
+    margin-bottom:25px;
+    border-collapse:collapse;
+    background-color:#e9ddff;
+    width:100%;
+}
+
+.thAbout, .thHome{
+    padding:.6rem 1rem;
+    letter-spacing:0.1rem;
+    font-size:0.7rem;
+}
+
+:is(.page-home, .page-about) :is(.tableAbout, .tableHome) tbody tr:nth-child(even){
+    background-color: rgba(255,255,255,0.2);
+}
+
+.pAbout{
+    text-align: justify;
+}
