@@ -1,0 +1,227 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: #27445D; 
+  color: #fff;
+  line-height: 1.6;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: #497D74; 
+  padding: 15px 0;
+  display: flex;
+  justify-content: center;
+  z-index: 10;
+}
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+.nav-links a {
+  text-decoration: none;
+  color: #fff;
+  transition: 0.3s;
+}
+.nav-links a:hover,
+.nav-links .active a {
+  color: #EAE4D5;
+}
+
+.home-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 100px 10% 70px;
+  gap: 40px;
+}
+
+.home-left, .home-right {
+  flex: 1;
+  padding: 20px;
+  text-align: center;
+}
+
+.home-left h2 {
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+.vertical-stats {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff; 
+  color: #333;
+}
+.vertical-stats td {
+  border: 1px solid #497D74;
+  padding: 10px;
+  text-align: left;
+}
+
+.home-right .profile-img-square {
+  width: 220px;
+  border-radius: 20px;
+  margin-bottom: 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+}
+.home-right .tagline {
+  font-size: 1.2rem;
+  font-style: italic;
+  color: #EAE4D5;
+  margin-top: 8px;
+}
+
+.about-page, .contact-page {
+  padding: 100px 10% 70px;
+}
+.about-section, .contact-section {
+  padding: 25px;
+  border-radius: 12px;
+  background: none;
+  color: #fff;
+}
+.about-section h2, .contact-section h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #fff;
+}
+.center-text {
+  text-align: center;
+}
+table {
+  width: 100%;
+  margin-bottom: 20px;
+  background: #fff; 
+  color: #333;
+}
+table td {
+  padding: 8px;
+  border-bottom: 1px solid #ccc;
+}
+dl dt {
+  font-weight: bold;
+}
+dl dd {
+  margin-bottom: 10px;
+}
+
+
+.about-section h3 {
+  margin-top: 30px;
+  margin-bottom: 15px;
+  text-align: center;
+  color: #fff;
+}
+
+.bio p {
+  margin-bottom: 10px;
+}
+
+.pendidikan dt {
+  font-weight: bold;
+  margin-top: 10px;
+}
+.pendidikan dd {
+  margin-bottom: 10px;
+}
+
+
+.skills-list.center-text li,
+.hobbies-list.center-text li,
+.skills li,
+.hobbies li {
+  list-style-position: inside;
+  margin: 5px 0;
+  color: #fff;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+}
+.contact-form label {
+  margin-top: 10px;
+  color: #fff;
+}
+.contact-form input,
+.contact-form textarea {
+  padding: 8px;
+  border: 1px solid #497D74;
+  border-radius: 6px;
+  margin-top: 5px;
+}
+.radio-group {
+  display: flex;
+  flex-direction: column; 
+  gap: 8px; 
+  margin: 10px 0;
+  align-items: flex-start; 
+}
+
+.checkbox {
+  margin: 15px 0;
+}
+.btn {
+  display: inline-block;
+  background: #497D74;
+  color: #fff;
+  padding: 10px 25px;
+  border-radius: 8px;
+  transition: 0.3s;
+  border: none;
+  cursor: pointer;
+}
+.btn:hover {
+  background: #355b55;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #497D74; 
+  padding: 10px 20px;
+  font-size: 0.9rem;
+}
+.footer-logo {
+  color: #fff;
+  font-weight: bold;
+}
+.footer-right {
+  text-align: right;
+  color: #fff;
+}
+.footer .social-media a {
+  color: #fff;
+  margin: 0 8px;
+  transition: 0.3s;
+}
+.footer .social-media a:hover {
+  color: #EAE4D5;
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .home-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .home-left, .home-right {
+    width: 100%;
+  }
+}

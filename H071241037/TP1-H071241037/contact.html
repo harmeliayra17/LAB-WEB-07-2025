@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tugas 1 Praktikum - Contact</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>  
+      <li class="active"><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main class="contact-page">
+    <section class="contact-section">
+      <h2>Informasi Kontak</h2>
+      <table>
+        <tr><td><strong>Email</strong></td><td>parediniaja@gmail.com</td></tr>
+        <tr><td><strong>Nomor Telepon</strong></td><td>+62 812-3456-7890</td></tr>
+        <tr><td><strong>LinkedIn</strong></td><td><a href="https://www.linkedin.com/in/rizky-nur-fariid-394861277/" target="_blank">Profil LinkedIn</a></td></tr>
+        <tr><td><strong>Instagram</strong></td><td><a href="https://www.instagram.com/rizkyfariid/" target="_blank">@rizkyfariid</a></td></tr>
+        <tr><td><strong>GitHub</strong></td><td><a href="https://github.com/Pareddd" target="_blank">github.com/Pareddd</a></td></tr>
+      </table>
+    </section>
+
+    <section class="contact-section">
+      <h2>Hubungi Saya</h2>
+      <form class="contact-form">
+        <label for="name">Nama:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="phone">Nomor Telepon:</label>
+        <input type="tel" id="phone" name="phone" required>
+
+        <label>Tipe Pesan:</label>
+        <div class="radio-group">
+          <label><input type="radio" name="tipe" value="pertanyaan" required> Pertanyaan</label>
+          <label><input type="radio" name="tipe" value="kritik"> Kritik</label>
+          <label><input type="radio" name="tipe" value="saran"> Saran</label>
+          <label><input type="radio" name="tipe" value="kerjasama"> Kerjasama</label>
+        </div>
+
+        <label for="message">Pesan Detail:</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+
+        <div class="checkbox">
+          <label><input type="checkbox" name="persetujuan" required> Saya menyetujui data saya digunakan untuk keperluan respon.</label>
+        </div>
+
+        <button type="submit" class="btn">Kirim</button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-logo">Pareddd</div>
+    <div class="footer-right">
+      <p>&copy; Tugas Praktikum 1 Rizky Nur Fariid. All Rights Reserved.</p>
+      <div class="social-media">
+        <a href="https://www.linkedin.com/in/rizky-nur-fariid-394861277/" target="_blank">LinkedIn</a>
+        <a href="https://www.instagram.com/rizkyfariid/" target="_blank">Instagram</a>
+        <a href="https://github.com/Pareddd" target="_blank">GitHub</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
