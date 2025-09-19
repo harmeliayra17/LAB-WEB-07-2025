@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio - Contact</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="container">
+            <h1 class="logo">Portofolio Saya</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html" class="active">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="contact-section">
+            <div class="container">
+                <h3>Kontak Saya</h3>
+                <div class="contact-info">
+                    <h4>Informasi Kontak</h4>
+                    <table>
+                        <tr>
+                            <th>Email</th>
+                            <td>faderu@yahoo.com</td>
+                        </tr>
+                        <tr>
+                            <th>Nomor Telepon</th>
+                            <td>+62 812 3456 7890</td>
+                        </tr>
+                        <tr>
+                            <th>LinkedIn</th>
+                            <td><a href="?" target="_blank">linkedin.com/in/fadel</a></td>
+                        </tr>
+                        <tr>
+                            <th>Instagram</th>
+                            <td><a href="https://www.instagram.com/fadeeru/" target="_blank">@fadeeru</a></td>
+                        </tr>
+                        <tr>
+                            <th>GitHub</th>
+                            <td><a href="https://github.com/Faderu" target="_blank">https://github.com/Faderu</a></td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="contact-form-container">
+                    <h4>Formulir Kontak</h4>
+                    <form action="?" method="post">
+                        <label for="name">Nama Lengkap</label>
+                        <input type="text" id="name" name="name" required>
+
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+
+                        <label for="phone">Nomor Telepon</label>
+                        <input type="tel" id="phone" name="phone" required>
+
+                        <label>Tipe Pesan</label>
+                        <div class="radio-group">
+                            <input type="radio" id="question" name="message-type" value="pertanyaan" required>
+                            <label for="question">Pertanyaan</label>
+                            <input type="radio" id="criticism" name="message-type" value="kritik">
+                            <label for="criticism">Kritik</label>
+                            <input type="radio" id="suggestion" name="message-type" value="saran">
+                            <label for="suggestion">Saran</label>
+                            <input type="radio" id="collaboration" name="message-type" value="kerjasama">
+                            <label for="collaboration">Kerjasama</label>
+                        </div>
+
+                        <label for="message">Pesan Detail</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="agreement" name="agreement" required>
+                            <label for="agreement">Saya setuju data saya digunakan untuk keperluan komunikasi
+                                ini.</label>
+                        </div>
+
+                        <button type="submit">Kirim Pesan</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Portofolio Saya. All rights reserved.</p>
+            <div class="social-links">
+                <a href="?"><img src="assets/linkedin.svg" alt="LinkedIn" width="24"></a>
+                <a href="https://www.instagram.com/fadeeru/"><img src="assets/instagram.svg" alt="Instagram"
+                        width="24"></a>
+                <a href="https://github.com/Faderu"><img src="assets/github.svg" alt="GitHub" width="24"></a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
