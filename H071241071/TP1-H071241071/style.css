@@ -1,0 +1,289 @@
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 960px;
+    margin: auto;
+    padding: 0 20px;
+}
+
+/* Header & Navigasi */
+header {
+    background: #007BFF;
+    color: #fff;
+    padding: 1rem 0;
+    border-bottom: 5px solid #0056b3;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+}
+
+header nav ul li {
+    margin-left: 20px;
+}
+
+header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+header nav ul li a:hover,
+header nav ul li a.active {
+    color: #ffc107;
+}
+
+/* Bagian Konten Utama */
+main {
+    flex-grow: 1;
+    padding: 2rem 0;
+    margin-top: 2.5rem;
+}
+
+section {
+    background: #fff;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+section h3,
+section h4 {
+    margin-bottom: 1rem;
+    color: #0056b3;
+}
+
+/* Homepage */
+.hero-section {
+    text-align: center;
+    background: linear-gradient(135deg, #007BFF, #00c6ff);
+    color: #fff;
+    padding: 4rem 2rem;
+    border-radius: 10px;
+}
+
+.profile-photo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 5px solid #fff;
+    margin-bottom: 1rem;
+}
+
+.hero-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.hero-section .tagline {
+    font-size: 1.2rem;
+    font-style: italic;
+    opacity: 0.9;
+}
+
+.quick-stats-section table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+.quick-stats-section th,
+.quick-stats-section td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.quick-stats-section th {
+    background-color: #f2f2f2;
+    font-weight: 600;
+}
+
+/* About Page */
+.personal-info table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+.personal-info th,
+.personal-info td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.personal-info th {
+    background-color: #f2f2f2;
+    width: 30%;
+}
+
+.bio-section h4 {
+    margin-top: 1rem;
+}
+
+.bio-section p {
+    margin-bottom: 1rem;
+    text-align: justify;
+}
+
+.education-section dl {
+    margin-top: 1rem;
+}
+
+.education-section dt {
+    font-weight: 600;
+    color: #007BFF;
+    margin-top: 1rem;
+}
+
+.skills-section h4 {
+    margin-top: 1rem;
+}
+
+.skills-section ul,
+.hobbies-section ol {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    padding-left: 20px;
+}
+
+/* Contact Page */
+.contact-info table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+.contact-info th,
+.contact-info td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.contact-info th {
+    background-color: #f2f2f2;
+    width: 30%;
+}
+
+.contact-info a {
+    color: #007BFF;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-info a:hover {
+    color: #0056b3;
+}
+
+.contact-form-container h4 {
+    margin-top: 1rem;
+}
+
+.contact-form-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact-form-container label {
+    font-weight: 600;
+}
+
+.contact-form-container input,
+.contact-form-container textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-family: inherit;
+    font-size: 1rem;
+}
+
+.radio-group,
+.checkbox-group {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+}
+
+.radio-group label,
+.checkbox-group label {
+    font-weight: 400;
+}
+
+.radio-group input,
+.checkbox-group input {
+    width: auto;
+}
+
+.contact-form-container button {
+    background: #007BFF;
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.contact-form-container button:hover {
+    background: #0056b3;
+}
+
+/* Footer */
+footer {
+    background: #333;
+    color: #fff;
+    padding: 1rem 0;
+    text-align: center;
+    margin-top: auto;
+}
+
+footer .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+}
