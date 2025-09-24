@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mamasa Roasted – Kopi Asli Pegunungan</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="font-sans text-gray-800 bg-white pt-1">
+
+  <nav class="relative bg-white shadow-md fixed top-0 w-full z-30">
+    <input id="menu-toggle" type="checkbox" class="hidden peer" aria-hidden="true">
+
+    <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="#beranda" class="text-2xl font-bold text-amber-700">Mamasa Roasted Coffee</a>
+
+      <ul class="hidden md:flex space-x-6">
+        <li><a href="#beranda" class="hover:text-amber-700">Beranda</a></li>
+        <li><a href="#tentang" class="hover:text-amber-700">Tentang</a></li>
+        <li><a href="#produk"  class="hover:text-amber-700">Produk</a></li>
+        <li><a href="#kontak"  class="hover:text-amber-700">Kontak</a></li>
+      </ul>
+
+      <label for="menu-toggle" class="md:hidden inline-flex items-center justify-center p-2 rounded-md cursor-pointer hover:bg-gray-100"
+             aria-label="Buka menu">
+        <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+             xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </label>
+    </div>
+
+    <div class="peer-checked:block hidden md:hidden">
+      <div class="px-4 pb-4 bg-white border-t border-gray-200">
+        <a href="#beranda" class="block py-2 hover:text-amber-700">Beranda</a>
+        <a href="#tentang" class="block py-2 hover:text-amber-700">Tentang</a>
+        <a href="#produk"  class="block py-2 hover:text-amber-700">Produk</a>
+        <a href="#kontak"  class="block py-2 hover:text-amber-700">Kontak</a>
+      </div>
+    </div>
+  </nav>
+
+  <header id="beranda"
+    class="relative bg-cover bg-center text-white flex flex-col items-center justify-center min-h-screen"
+    style="background-image:url('images/hero-coffee.jpg');">
+    <div class="absolute inset-0 bg-black/50"></div>
+    <div class="relative z-10 max-w-2xl text-center px-4">
+      <h1 class="text-4xl md:text-6xl font-extrabold mb-4 drop-shadow-lg">Mamasa Roasted Coffee</h1>
+      <p class="text-lg md:text-xl mb-8 leading-relaxed">
+        Cita rasa kopi khas pegunungan Mamasa, dipanggang dengan teknik tradisional untuk aroma dan rasa yang tak tertandingi.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="#kontak"
+           class="bg-white text-amber-700 font-semibold px-6 py-3 rounded-full shadow hover:bg-gray-100 transition">
+          Pesan Sekarang
+        </a>
+        <a href="#tentang"
+           class="bg-amber-700 text-white font-semibold px-6 py-3 rounded-full shadow hover:bg-amber-800 transition">
+          Pelajari Lebih Lanjut
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <section id="tentang" class="max-w-6xl mx-auto px-4 py-16 scroll-mt-20">
+    <h2 class="text-3xl font-bold text-center mb-8 text-amber-700">Tentang Kami</h2>
+    <p class="text-center max-w-3xl mx-auto text-gray-700 leading-relaxed">
+      Mamasa Roasted lahir dari kecintaan pada kopi lokal Sulawesi Barat. Kami memilih biji kopi terbaik langsung dari kebun Mamasa dan memanggangnya secara tradisional agar setiap cangkir menghadirkan cita rasa pegunungan yang otentik.
+    </p>
+    <div class="mt-10 grid grid-cols-1 md:grid-cols-2 gap-6">
+      <img src="images/kebun-mamasa.jpg" alt="Kebun Kopi Mamasa" class="rounded-lg w-full object-cover">
+      <img src="images/proses-sangrai.jpg" alt="Proses Sangrai Kopi" class="rounded-lg w-full object-cover">
+    </div>
+  </section>
+
+  <section id="produk" class="bg-amber-50 py-16 scroll-mt-20">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-12 text-amber-700">Produk Unggulan</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
+          <img src="images/arabica-mamasa.jpg" alt="Arabica Mamasa" class="rounded mb-4 w-full h-48 object-cover">
+          <h3 class="text-xl font-semibold mb-2">Arabica Mamasa</h3>
+          <p class="text-gray-600">Rasa fruity dan keasaman seimbang, cocok untuk manual brew.</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
+          <img src="images/robusta-strong.jpg" alt="Robusta Strong Roast" class="rounded mb-4 w-full h-48 object-cover">
+          <h3 class="text-xl font-semibold mb-2">Robusta Strong Roast</h3>
+          <p class="text-gray-600">Karakter bold dengan aroma cokelat dan aftertaste yang panjang.</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
+          <img src="images/signature-blend.jpg" alt="Signature Blend" class="rounded mb-4 w-full h-48 object-cover">
+          <h3 class="text-xl font-semibold mb-2">Signature Blend</h3>
+          <p class="text-gray-600">Perpaduan Arabica & Robusta dengan profil rasa seimbang.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="max-w-6xl mx-auto px-4 py-16 scroll-mt-20">
+    <h2 class="text-3xl font-bold text-center mb-12 text-amber-700">Apa Kata Pecinta Kopi?</h2>
+    <div class="flex flex-col md:flex-row gap-8 justify-center">
+      <div class="bg-white p-6 shadow rounded-lg text-center">
+        <img src="images/pelanggan-andi.jpg" alt="Pelanggan Andi" class="w-20 h-20 mx-auto rounded-full mb-4 object-cover">
+        <p class="italic text-gray-700">“Kopi Mamasa Roasted aromanya luar biasa dan rasanya otentik!”</p>
+        <span class="block mt-4 font-semibold">– Andi, Barista</span>
+      </div>
+      <div class="bg-white p-6 shadow rounded-lg text-center">
+        <img src="images/pelanggan-budi.jpg" alt="Pelanggan Budi" class="w-20 h-20 mx-auto rounded-full mb-4 object-cover">
+        <p class="italic text-gray-700">“Rasa yang konsisten dan kemasan menarik. Favorit pelanggan saya.”</p>
+        <span class="block mt-4 font-semibold">– Budi, Pemilik Café</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="kontak" class="bg-amber-100 py-16 scroll-mt-20">
+    <div class="max-w-4xl mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-8 text-amber-800">Hubungi Kami</h2>
+      <p class="text-center mb-10 text-gray-700">
+        Tertarik memesan atau ingin informasi lebih lanjut? Isi formulir berikut.
+      </p>
+      <form class="bg-white rounded-lg shadow-md p-8 space-y-6">
+        <div>
+          <label for="nama" class="block text-gray-700 font-medium mb-2">Nama</label>
+          <input type="text" id="nama" required
+                 class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-amber-600">
+        </div>
+        <div>
+          <label for="email" class="block text-gray-700 font-medium mb-2">Email</label>
+          <input type="email" id="email" required
+                 class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-amber-600">
+        </div>
+        <div>
+          <label for="pesan" class="block text-gray-700 font-medium mb-2">Pesan</label>
+          <textarea id="pesan" rows="5" required
+                    class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-amber-600"></textarea>
+        </div>
+        <div class="text-center">
+          <button type="submit"
+                  class="bg-amber-700 hover:bg-amber-800 text-white font-semibold px-6 py-3 rounded-lg shadow transition">
+            Kirim Pesan
+          </button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <footer class="bg-amber-900 text-amber-100 py-8">
+    <div class="max-w-6xl mx-auto px-4 text-center">
+      <p class="mb-4"><strong>Mamasa Roasted</strong> &copy; 2025. Semua Hak Dilindungi.</p>
+      <div class="space-x-6">
+        <a href="https://instagram.com" target="_blank" class="hover:text-amber-300">Instagram</a>
+        <a href="https://facebook.com" target="_blank" class="hover:text-amber-300">Facebook</a>
+        <a href="https://wa.me/6281234567890" target="_blank" class="hover:text-amber-300">WhatsApp</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
