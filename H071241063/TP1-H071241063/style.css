@@ -1,0 +1,347 @@
+/* ================= RESET DAN BASE ================= */
+* {
+  margin: 0; /* Hapus margin default browser */
+  padding: 0; /* Hapus padding default browser */
+  box-sizing: border-box; /* Hitung width = content + padding + border */
+}
+
+body {
+  font-family: "Arial", sans-serif; /* Font utama */
+  line-height: 1.6; /* Jarak antar baris */
+  color: #333; /* Warna teks abu gelap */
+  background-color: #f8f9fa; /* Warna latar abu muda */
+}
+
+/* ================= HEADER ================= */
+header {
+  background-color: #2c5aa0; /* Biru utama */
+  color: white; /* Teks putih */
+  padding: 1rem 0; /* Jarak dalam atas bawah */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Bayangan lembut */
+  position: sticky; /* Tetap di atas saat scroll */
+  top: 0; /* Menempel bagian atas */
+  z-index: 100; /* Supaya di atas elemen lain */
+}
+
+.header-container {
+  max-width: 1200px; /* Lebar maksimal */
+  margin: 0 auto; /* Center horizontal */
+  padding: 0 20px; /* Spasi dalam kiri kanan */
+  display: flex; /* Flexbox */
+  justify-content: space-between; /* Logo kiri, menu kanan */
+  align-items: center; /* Vertikal sejajar */
+}
+
+.logo {
+  font-size: 1.8rem; /* Ukuran besar */
+  font-weight: bold; /* Tebal */
+  color: white; /* Putih */
+  text-decoration: none; /* Tanpa underline */
+}
+
+nav ul {
+  list-style: none; /* Hilangkan bullet */
+  display: flex; /* Horizontal */
+}
+
+nav ul li {
+  margin-left: 2rem; /* Jarak antar menu */
+}
+
+nav ul li a {
+  color: white; /* Putih */
+  text-decoration: none; /* Tanpa underline */
+  font-weight: 500; /* Semi tebal */
+  transition: color 0.3s ease; /* Efek halus hover */
+}
+
+nav ul li a:hover {
+  color: #87ceeb; /* Biru muda saat hover */
+}
+
+nav ul li a.active {
+  color: #87ceeb; /* Biru muda */
+  border-bottom: 2px solid #87ceeb; /* Garis bawah */
+  padding-bottom: 2px; /* Spasi dengan garis */
+}
+
+/* ================= MAIN ================= */
+main {
+  max-width: 1200px; /* Batas lebar */
+  margin: 0 auto; /* Center */
+  padding: 2rem 20px; /* Spasi dalam */
+  min-height: calc(100vh - 140px); /* Isi penuh layar (minus header/footer) */
+}
+
+/* ================= SECTION ================= */
+.section {
+  background: white; /* Latar putih */
+  margin: 2rem 0; /* Jarak antar section */
+  padding: 2rem; /* Spasi dalam */
+  border-radius: 8px; /* Sudut melengkung */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Bayangan */
+}
+
+.section h2 {
+  color: #2c5aa0; /* Biru utama */
+  margin-bottom: 1.5rem; /* Jarak bawah */
+  font-size: 2rem; /* Besar */
+  border-bottom: 3px solid #87ceeb; /* Garis aksen */
+  padding-bottom: 0.5rem; /* Spasi teks dengan garis */
+}
+
+.section h3 {
+  color: #2c5aa0; /* Biru utama */
+  margin: 1.5rem 0 1rem; /* Jarak atas bawah */
+  font-size: 1.3rem; /* Ukuran sedang */
+}
+
+/* ================= HERO ================= */
+.hero {
+  text-align: center; /* Tengah semua konten */
+  padding: 3rem 0; /* Spasi besar */
+}
+
+.hero img {
+  width: 200px; /* Lebar foto */
+  height: 200px; /* Tinggi foto */
+  border-radius: 50%; /* Lingkaran */
+  object-fit: cover; /* Foto tidak distorsi */
+  border: 5px solid #2c5aa0; /* Bingkai biru */
+  margin-bottom: 1.5rem; /* Jarak dengan teks */
+}
+
+.hero h1 {
+  color: #2c5aa0; /* Biru utama */
+  font-size: 2.5rem; /* Sangat besar */
+  margin-bottom: 1rem; /* Jarak bawah */
+}
+
+.hero p {
+  font-size: 1.2rem; /* Sedikit lebih besar */
+  color: #666; /* Abu teks */
+  max-width: 600px; /* Batas lebar */
+  margin: 0 auto; /* Tengah */
+}
+
+/* ================= TABLE ================= */
+table {
+  width: 100%; /* Penuh */
+  border-collapse: collapse; /* Border jadi rapi */
+  margin: 1rem 0; /* Jarak atas bawah */
+}
+
+table th,
+table td {
+  padding: 12px; /* Spasi isi */
+  text-align: left; /* Rata kiri */
+  border-bottom: 1px solid #ddd; /* Garis bawah */
+}
+
+table th {
+  background-color: #2c5aa0; /* Biru */
+  color: white; /* Putih */
+  font-weight: 600; /* Tebal */
+}
+
+table tr:hover {
+  background-color: #f5f5f5; /* Warna highlight */
+}
+
+table tr:nth-child(even) {
+  background-color: #f8f9fa; /* Selang-seling warna */
+}
+
+/* ================= LIST ================= */
+ul,
+ol,
+dl {
+  margin: 1rem 0; /* Jarak atas bawah */
+}
+
+ul li,
+ol li {
+  margin: 0.5rem 0; /* Jarak antar item */
+  padding-left: 1rem; /* Indent */
+}
+
+dl dt {
+  font-weight: bold; /* Tebal */
+  color: #2c5aa0; /* Biru */
+  margin-top: 1rem; /* Jarak atas */
+}
+
+dl dd {
+  margin-left: 1.5rem; /* Geser ke kanan */
+  margin-bottom: 0.5rem; /* Jarak bawah */
+}
+
+/* ================= FORM ================= */
+form {
+  max-width: 600px; /* Lebar maksimal */
+  margin: 0 auto; /* Tengah */
+}
+
+.form-group {
+  margin-bottom: 1.5rem; /* Spasi antar input */
+}
+
+label {
+  display: block; /* Baris penuh */
+  margin-bottom: 0.5rem; /* Jarak bawah */
+  font-weight: 600; /* Tebal */
+  color: #2c5aa0; /* Biru */
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea,
+select {
+  width: 100%; /* Penuh */
+  padding: 12px; /* Spasi dalam */
+  border: 2px solid #ddd; /* Border abu */
+  border-radius: 5px; /* Sudut lembut */
+  font-size: 1rem; /* Ukuran normal */
+  transition: border-color 0.3s ease; /* Efek fokus halus */
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+textarea:focus,
+select:focus {
+  outline: none; /* Hilangkan outline default */
+  border-color: #2c5aa0; /* Border biru saat fokus */
+}
+
+textarea {
+  resize: vertical; /* Bisa diubah tinggi saja */
+  min-height: 120px; /* Tinggi minimal */
+}
+
+/* ================= RADIO & CHECKBOX ================= */
+.radio-group,
+.checkbox-group {
+  display: flex; /* Flex */
+  flex-wrap: wrap; /* Bisa turun baris */
+  gap: 1rem; /* Jarak antar item */
+  margin: 0.5rem 0; /* Jarak atas bawah */
+}
+
+.radio-group label,
+.checkbox-group label {
+  display: flex; /* Label + input sejajar */
+  align-items: center; /* Tengah vertikal */
+  font-weight: normal; /* Normal */
+  margin-bottom: 0; /* Hilangkan jarak bawah */
+  cursor: pointer; /* Tangan saat hover */
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  width: auto; /* Ikuti ukuran default */
+  margin-right: 0.5rem; /* Jarak kanan */
+}
+
+/* ================= BUTTON ================= */
+button {
+  background-color: #2c5aa0; /* Biru */
+  color: white; /* Teks putih */
+  padding: 12px 30px; /* Spasi dalam */
+  border: none; /* Tanpa border */
+  border-radius: 5px; /* Sudut lembut */
+  font-size: 1rem; /* Normal */
+  font-weight: 600; /* Tebal */
+  cursor: pointer; /* Kursor tangan */
+  transition: background-color 0.3s ease; /* Efek halus hover */
+}
+
+button:hover {
+  background-color: #1e3d6f; /* Biru lebih gelap */
+}
+
+/* ================= FOOTER ================= */
+footer {
+  background-color: #2c5aa0; /* Biru */
+  color: white; /* Putih */
+  text-align: center; /* Tengah */
+  padding: 2rem 0; /* Spasi dalam */
+  margin-top: 2rem; /* Jarak atas */
+}
+
+.footer-content {
+  max-width: 1200px; /* Batas lebar */
+  margin: 0 auto; /* Tengah */
+  padding: 0 20px; /* Spasi dalam kiri kanan */
+}
+
+.social-links {
+  margin-top: 1rem; /* Jarak atas */
+}
+
+.social-links a {
+  color: white; /* Putih */
+  text-decoration: none; /* Tanpa underline */
+  margin: 0 1rem; /* Jarak kiri kanan */
+  transition: color 0.3s ease; /* Efek hover halus */
+}
+
+.social-links a:hover {
+  color: #87ceeb; /* Biru muda saat hover */
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px) {
+  .header-container {
+    flex-direction: column; /* Jadi vertikal */
+    gap: 1rem; /* Jarak antar item */
+  }
+
+  nav ul {
+    flex-direction: column; /* Menu ke bawah */
+    text-align: center; /* Tengah */
+  }
+
+  nav ul li {
+    margin: 0.5rem 0; /* Jarak antar menu */
+  }
+
+  .hero h1 {
+    font-size: 2rem; /* Lebih kecil */
+  }
+
+  .hero img {
+    width: 150px; /* Foto kecil */
+    height: 150px;
+  }
+
+  main {
+    padding: 1rem 10px; /* Spasi lebih rapat */
+  }
+
+  .section {
+    padding: 1.5rem; /* Section lebih rapat */
+  }
+
+  .radio-group {
+    flex-direction: column; /* Radio jadi vertikal */
+  }
+}
+
+/* ================= UTILITY ================= */
+.text-center {
+  text-align: center;
+} /* Teks rata tengah */
+.text-blue {
+  color: #2c5aa0;
+} /* Teks biru */
+.bg-light {
+  background-color: #f8f9fa;
+} /* Background abu muda */
+.mt-2 {
+  margin-top: 1rem;
+} /* Margin atas kecil */
+.mb-2 {
+  margin-bottom: 1rem;
+} /* Margin bawah kecil */
