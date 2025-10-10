@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+ <meta charset="UTF-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ <title>JavaScript DOM</title>
+ </head>
+ <body>
+    <h1 id="judul">Hello DOM!</h1>
+    <p id="deskripsi">Belajar DOM itu menyenangkan!</p>
+        <script>
+            let teks = document.getElementById("deskripsi");
+            teks.style.color = "green"; // ubah warna teks jadi hijau
+        </script>
+            <div class="kotak">Kotak 1</div>
+        <div class="kotak">Kotak 2</div>
+        <script>
+            let kotak = document.getElementsByClassName("kotak");
+            kotak[1].style.backgroundColor = "lightblue";
+        </script>
+        <ul>
+            <li>Apel</li>
+            <li>Pisang</li>
+            <li>Mangga</li>
+        </ul>
+        <script>
+            let buah = document.getElementsByTagName("li");
+            buah[0].style.fontWeight = "bold";
+        </script>
+        <div id="info">
+            Informasi penting
+        </div>
+        <p class="teks">
+            Belajar JavaScript
+        </p>
+        <script>
+            // berdasarkan class
+            let teks = document.querySelector(".teks");
+            teks.style.fontSize = "20px";
+            // berdasarkan id
+            let info = document.querySelector("#info");
+            info.style.border = "2px solid red";
+            // berdasarkan tag
+            let paragraf = document.querySelector("p");
+            paragraf.style.backgroundColor = "yellow";
+        </script>
+
+ </body>
+</html>
