@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Y(UNO)</title>
+    <link rel="stylesheet" href="style.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- BACKGROUND DENGAN EFEK BLUR -->
+    <div class="background-blur"></div>
+    
+    <!-- FORM TARUHAN AWAL -->
+    <div id="bettingScreen" class="betting-screen">
+        <div class="betting-container glass-effect">
+            <h2 class="game-title">Y(UNO)</h2>
+            <div class="betting-form">
+                <div class="balance-info">
+                    <div class="balance-card">
+                        <p>Saldo Anda: <strong id="initial-balance">$5000</strong></p>
+                    </div>
+                </div>
+                <div class="bet-input-group">
+                    <label for="initialBetAmount">Masukkan Taruhan:</label>
+                    <div class="input-container glass-effect">
+                        <input type="number" id="initialBetAmount" placeholder="Minimal $100" min="100" step="1" />
+                    </div>
+                </div>
+                <button class="btn btn-primary start-game-btn" id="startGame" type="button">
+                    Mulai Permainan
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAPAN PERMAINAN -->
+    <div id="gameBoard" class="game-container hidden">
+        <header class="game-header">
+            <h2 class="game-title">Y(UNO)</h2>
+        </header>
+
+        <!-- BOT CARDS -->
+        <section class="bot-cards">
+            <h3 class="section-title">Bot <span class="muted" id="botCount">(7 Kartu)</span></h3>
+            <div class="cards-row" id="botRow">
+                <!-- Kartu bot akan diisi oleh JavaScript -->
+            </div>
+        </section>
+
+        <!-- AREA TENGAH: DISCARD & DECK -->
+        <section class="middle-area">
+            <div class="discard-pile">
+                <div class="card-stack glass-effect">
+                    <div class="pile">
+                        <img id="topCard" class="card-img card-lg" src="assets/blue_0.png" alt="Kartu teratas">
+                    </div>
+                </div>
+            </div>
+
+            <div class="deck">
+                <div class="deck-inner glass-effect">
+                    <div class="deck-stack">
+                        <img class="card-img card-md" src="assets/card_back.png" alt="Deck">
+                    </div>
+                    <div class="deck-info">
+                        <small id="deckInfoText" class="deck-info-text muted">Sisa Kartu: 0</small>
+                    </div>
+                    <button class="btn btn-primary draw-btn" id="drawBtn" type="button">
+                        Ambil Kartu
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- PLAYER CARDS -->
+        <section class="player-cards">
+            <h3 class="section-title">Kartu Anda <span class="muted" id="playerCount">(7 Kartu)</span></h3>
+            <div class="cards-row" id="playerRow">
+                <!-- Kartu player akan diisi oleh JavaScript -->
+            </div>
+            
+            <!-- Tombol Aksi di Bawah Kartu Player -->
+            <div class="action-buttons">
+                <button class="btn btn-primary" id="skipBtn" type="button">
+                    Lewati Giliran
+                </button>
+                <button class="btn btn-primary" id="unoBtn" type="button">
+                    UNO!
+                </button>
+                <button class="btn btn-primary" id="callUnoBtn" type="button">
+                    Panggil UNO
+                </button>
+            </div>
+        </section>
+
+        <!-- PANEL KANAN -->
+        <aside class="right-section glass-effect" aria-label="Panel kontrol">
+            <!-- Info Saldo & Taruhan Saat Game -->
+            <div class="game-info">
+                <h4>Informasi Permainan</h4>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <span class="info-label">Saldo:</span>
+                        <span class="info-value" id="player-balance">50.000</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Taruhan Anda:</span>
+                        <span class="info-value" id="player-bet">0</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Taruhan Bot:</span>
+                        <span class="info-value" id="bot-bet">0</span>
+                    </div>
+                    <div class="info-item total-bet">
+                        <span class="info-label">Total Taruhan:</span>
+                        <span class="info-value" id="total-bet">0</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- INFO PERMAINAN -->
+            <div class="info-section">
+                <h4 class="muted">Status Permainan</h4>
+                <div class="status-message glass-effect">
+                    <p id="infoText" class="muted" aria-live="polite">Memulai permainan...</p>
+                </div>
+            </div>
+
+            <button class="btn btn-exit" id="exitGame" type="button">
+                Keluar Permainan
+            </button>
+        </aside>
+    </div>
+
+    <!-- MODAL WILD -->
+    <div class="modal hidden" id="wildModal" role="dialog" aria-modal="true" aria-labelledby="wildTitle">
+        <div class="modal-backdrop"></div>
+        <div class="modal-dialog glass-effect">
+            <h3 id="wildTitle">Pilih Warna</h3>
+            <div class="color-grid">
+                <button class="color-chip red" data-color="red" aria-label="Merah" type="button">
+                    <span class="color-name">Merah</span>
+                </button>
+                <button class="color-chip blue" data-color="blue" aria-label="Biru" type="button">
+                    <span class="color-name">Biru</span>
+                </button>
+                <button class="color-chip green" data-color="green" aria-label="Hijau" type="button">
+                    <span class="color-name">Hijau</span>
+                </button>
+                <button class="color-chip yellow" data-color="yellow" aria-label="Kuning" type="button">
+                    <span class="color-name">Kuning</span>
+                </button>
+            </div>
+            <div class="modal-actions">
+                <button class="btn btn-secondary" id="wildCancel" type="button">Batal</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
