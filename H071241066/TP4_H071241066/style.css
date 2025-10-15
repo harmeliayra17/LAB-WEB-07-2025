@@ -1,0 +1,394 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Orbitron:wght@400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Orbitron', sans-serif;
+    background: black; 
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.container {
+    width: 100%;
+    max-width: 1400px;
+    padding: 20px;
+}
+
+/* Start Screen */
+.start-screen {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 50px;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.start-screen h1 {
+    font-family: 'Press Start 2P', cursive;
+    font-weight: 400;
+    font-size: 60px;
+    margin-bottom: 40px;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+    letter-spacing: 3px;
+    line-height: 1.3;
+}
+
+.balance-display {
+    font-size: 22px;
+    margin-bottom: 30px;
+    font-weight: 600;
+}
+
+.bet-input {
+    margin: 20px 0;
+}
+
+.bet-input input {
+    padding: 15px;
+    font-size: 18px;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 600;
+    border: none;
+    border-radius: 10px;
+    width: 300px;
+    text-align: center;
+}
+
+.btn {
+    font-family: 'Orbitron', sans-serif;
+    padding: 15px 40px;
+    font-size: 18px;
+    font-weight: 700;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    color: white;
+    transition: transform 0.2s;
+    margin: 10px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+}
+
+.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Game Screen */
+.game-screen {
+    display: none;
+}
+
+.game-board {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(5px);
+    padding: 30px;
+    border-radius: 20px;
+    min-height: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: space-around; 
+    width: 100%;
+}
+
+/* Bot Area */
+.bot-area {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.bot-area h2, .player-area h2, .deck h3, .discard-pile h3 {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.bot-cards {
+    display: flex;
+    justify-content: center;
+    gap: -30px;
+    margin-top: 10px;
+}
+
+.card-back {
+    width: 80px;
+    height: 120px;
+    border-radius: 10px;
+    margin-left: -30px;
+    transition: transform 0.2s;
+    background-size: cover;
+    background-position: center;
+}
+
+.card-back:first-child {
+    margin-left: 0;
+}
+
+/* Center Area */
+.center-area {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px; 
+    margin: 40px 0;
+}
+
+.deck {
+    text-align: center;
+}
+
+
+.deck-pile {
+    width: 120px;
+    height: 180px;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: transform 0.2s;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    background-size: cover;
+    background-position: center;
+}
+
+.deck-pile:hover {
+    transform: translateY(-5px);
+}
+
+.discard-pile {
+    text-align: center;
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+}
+
+.card {
+    width: 120px;
+    height: 180px;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    position: relative;
+    background-size: cover;
+    background-position: center;
+}
+
+/* Indikator Giliran - Pindah ke sebelah kanan */
+.turn-indicator-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    font-weight: 700;
+    color: #fff;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    min-width: 150px;
+    font-family: 'Orbitron', sans-serif;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+/* Player Area */
+.player-area {
+    text-align: center;
+    margin-top: 30px;
+    padding-bottom: 50px; 
+}
+
+/* Gaya tumpukan dan miring */
+.player-cards {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin: 20px auto; 
+    min-height: 250px;
+    width: 100%;
+}
+
+.player-cards .card {
+    position: absolute; 
+    bottom: 0; 
+    transition: transform 0.3s ease-out, box-shadow 0.3s; 
+}
+
+/* Efek kartu yang bisa dimainkan */
+.player-cards .card.playable {
+    border: 4px solid #2ecc71;
+    box-shadow: 0 0 20px rgba(46, 204, 113, 0.8);
+}
+
+
+/* UNO Button */
+.uno-button {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+    border: 5px solid white;
+    font-size: 26px;
+    font-weight: 900;
+    font-family: 'Orbitron', sans-serif;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: none;
+    letter-spacing: 2px;
+}
+
+.uno-button:hover {
+    transform: scale(1.1);
+}
+
+.uno-button.active {
+    display: block;
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+/* Color Chooser Modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.modal-content h2 {
+    color: #333;
+    margin-bottom: 20px;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.color-options {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.color-option {
+    width: 100px;
+    height: 100px;
+    border-radius: 15px;
+    border: 5px solid #333;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.color-option:hover {
+    transform: scale(1.1);
+}
+
+.color-option.red { background: #e74c3c; }
+.color-option.blue { background: #3498db; }
+.color-option.green { background: #2ecc71; }
+.color-option.yellow { background: #f1c40f; }
+
+/* Game Over Screen */
+.game-over-screen {
+    display: none;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 50px;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.game-over-screen h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 900;
+    font-size: 50px;
+    margin-bottom: 30px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+/* Status Message */
+.status-message {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.9);
+    padding: 30px 60px;
+    border-radius: 20px;
+    font-size: 30px;
+    font-weight: bold;
+    z-index: 999;
+    display: none;
+    animation: fadeInOut 2s;
+}
+
+@keyframes fadeInOut {
+    0%, 100% { opacity: 0; }
+    10%, 90% { opacity: 1; }
+}
+
+/* Timer */
+.uno-timer {
+    position: fixed;
+    bottom: 150px;
+    right: 30px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: rgba(231, 76, 60, 0.9);
+    border: 5px solid white;
+    font-size: 40px;
+    font-weight: 900;
+    font-family: 'Orbitron', sans-serif;
+    color: white;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 768px) {
+    .card, .deck-pile {
+        transform: scale(0.8);
+    }
+    
+    .player-cards .card {
+        margin-left: 0 !important; 
+    }
+    
+    .start-screen h1 {
+        font-size: 36px;
+    }
+}
