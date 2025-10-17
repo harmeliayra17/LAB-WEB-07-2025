@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UNO Game</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background: radial-gradient(circle, #0088cc 0%, #004477 100%);
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            overflow: hidden;
+            color: white;
+            text-align: center;
+        }
+
+        #game {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #centerArea {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+        }
+
+        #discardPile img,
+        #deck img {
+            width: 90px;
+            height: 130px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            cursor: pointer;
+        }
+
+        #playerHand,
+        #botHand {
+            display: flex;
+            justify-content: center;
+            margin: 10px;
+            gap: 5px;
+        }
+
+        #playerHand img {
+            width: 70px;
+            height: 100px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        #playerHand img:hover {
+            transform: translateY(-10px);
+        }
+
+        #botHand img {
+            width: 70px;
+            height: 100px;
+            border-radius: 8px;
+            filter: brightness(0.6);
+        }
+
+        #controls {
+            margin-top: 20px;
+        }
+
+        button {
+            background-color: #ffcc00;
+            color: #222;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: bold;
+            margin: 5px;
+            transition: 0.2s;
+        }
+
+        button:hover {
+            background-color: #ffaa00;
+        }
+
+        #statusLog {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            border-radius: 10px;
+            width: 80%;
+            max-height: 100px;
+            overflow-y: auto;
+            margin-top: 10px;
+            text-align: left;
+            font-size: 14px;
+        }
+
+        #betInput {
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            margin: 5px;
+        }
+
+        #colorChoice {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        #colorChoice button {
+            margin: 10px;
+            width: 100px;
+        }
+
+        #gameOverModal {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(255, 0, 0, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        #accuseBotUno {
+            display: none;
+        }
+
+        #balance {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        @media (max-width: 600px) {
+
+            #discardPile img,
+            #deck img {
+                width: 60px;
+                height: 86px;
+            }
+
+            #playerHand img,
+            #botHand img {
+                width: 50px;
+                height: 71px;
+            }
+
+            #statusLog {
+                width: 90%;
+                font-size: 12px;
+            }
+
+            #balance {
+                font-size: 14px;
+                padding: 5px;
+            }
+
+            #passButton {
+                background-color: #ff4444;
+            }
+
+            #passButton:hover {
+                background-color: #cc0000;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="game">
+        <div id="balance">$5000</div>
+        <div id="botArea">
+            <div id="botHand"></div>
+        </div>
+
+        <div id="centerArea">
+            <div id="deck"></div>
+            <div id="discardPile"></div>
+        </div>
+
+        <div id="playerArea">
+            <div id="playerHand"></div>
+        </div>
+
+        <div id="controls">
+            <input type="number" id="betInput" min="100" placeholder="Taruhan ($100 min)" />
+            <button id="startButton">Mulai Ronde</button>
+            <button id="unoButton">UNO!</button>
+            <button id="accuseBotUno">Panggil UNO pada Bot!</button>
+            <button id="passButton" style="display: none;">Pass</button>
+        </div>
+
+        <div id="statusLog"></div>
+    </div>
+
+    <div id="colorChoice">
+        <h3>Pilih Warna:</h3>
+        <button data-color="red">Red</button>
+        <button data-color="yellow">Yellow</button>
+        <button data-color="green">Green</button>
+        <button data-color="blue">Blue</button>
+    </div>
+
+    <div id="gameOverModal" style="display: none;">
+        <div class="modal-content">
+            <h2>Game Over!</h2>
+            <p>Saldo kamu habis. Mulai ulang?</p>
+            <button id="restartButton">Mulai Ulang</button>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+
+</html>
