@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Uno-lite — Demo</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">UNO • Lite</div>
+    <div class="controls">
+      <div class="saldo">Saldo: <span id="saldoDisplay">5000</span>$</div>
+      Taruhan:
+      <input id="betInput" type="number" min="100" value="100" step="100" />
+      <button id="startBtn" class="btn">Mulai Ronde</button>
+    </div>
+  </header>
+
+  <main class="board">
+    <section class="player-area bot-area">
+      <div class="player-name">Bot</div>
+      <div id="botHand" class="hand bot-hand"></div>
+      <div id="botStatus" class="status">Status: siap</div>
+    </section>
+
+    <section class="center-area">
+      <div class="pile-row">
+        <div id="deck" class="deck" title="Deck (klik untuk ambil)"></div>
+        <div id="discard" class="discard" title="Discard pile"></div>
+      </div>
+      <div class="log" id="gameLog">Tekan "Mulai Ronde" untuk mulai.</div>
+    </section>
+
+    <section class="player-area human-area">
+      <div class="player-name">Kamu</div>
+      <div id="playerHand" class="hand player-hand"></div>
+      <div class="actions">
+        <button id="drawBtn" class="btn">Ambil Kartu</button>
+        <button id="unoBtn" class="btn uno">UNO!</button>
+        <div id="unoTimer" class="timer"></div>
+      </div>
+      <div id="playerStatus" class="status">Status: menunggu</div>
+    </section>
+  </main>
+  <footer class="footer">
+    
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
