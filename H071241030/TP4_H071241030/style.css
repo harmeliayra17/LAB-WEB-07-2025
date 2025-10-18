@@ -1,0 +1,152 @@
+:root{
+  --bg:#0b1a2b;
+  --card-width:80px;
+  --card-height:115px;
+  --card-radius:12px;
+  --glass: rgba(255,255,255,0.04);
+  --accent: #ffde59;
+  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html, body {
+  width:100%;
+  height:100vh;              /* Pas satu layar penuh */
+  overflow:hidden;           /* Hilangkan scroll */
+  font-family:var(--font-sans);
+  background: var(--bg);     /* Warna polos */
+  color:#eef2ff;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:flex-start;
+}
+
+/* ----------------- TOP BAR ----------------- */
+.topbar{
+  width:100%;
+  max-width:900px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:10px 16px;
+  background:rgba(255,255,255,0.05);
+  border-bottom:1px solid rgba(255,255,255,0.1);
+  border-radius:0 0 12px 12px;
+  box-shadow:0 4px 10px rgba(0,0,0,0.4);
+}
+.brand{font-weight:800; font-size:18px; color:var(--accent);}
+.controls{display:flex; gap:10px; align-items:center; font-size:14px; flex-wrap:wrap;}
+.btn{
+  background:linear-gradient(180deg,#1f2937,#111827);
+  color:#fff; border:0; padding:7px 12px; border-radius:8px;
+  cursor:pointer; box-shadow:0 3px 8px rgba(0,0,0,0.4);
+  transition:all .2s;
+}
+.btn:hover{transform:translateY(-2px);}
+.uno{background:linear-gradient(180deg,#ff3b6b,#c20045);}
+.timer{min-width:50px;text-align:center;font-weight:bold;color:#ffdca8}
+
+/* ----------------- MAIN BOARD ----------------- */
+.board{
+  flex: 1;                                /* isi penuh area di bawah topbar */
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;          /* biar bagian atas & bawah pas */
+  align-items:center;
+  width:100%;
+  max-width:900px;
+  padding:10px 0;
+  box-sizing:border-box;
+}
+
+/* PLAYER AREAS */
+.player-area{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:10px;
+  width:100%;
+}
+.player-name{font-weight:700;}
+.status{font-size:13px; color:#cbd5e1;}
+.hand{
+  display:flex; flex-wrap:wrap; justify-content:center;
+  gap:8px; min-height:120px;
+}
+
+/* ----------------- CARDS ----------------- */
+.card{
+  width:var(--card-width); height:var(--card-height);
+  border-radius:var(--card-radius);
+  display:flex; align-items:center; justify-content:center;
+  font-size:38px; font-weight:800; color:white;
+  box-shadow:0 6px 14px rgba(0,0,0,0.6);
+  transition:transform .15s;
+}
+.card:hover{transform:translateY(-6px);}
+.card .sub{
+  position:absolute; bottom:6px; right:8px;
+  font-size:11px; opacity:0.8; font-weight:600;
+}
+
+.red{background: linear-gradient(180deg,#ff5252,#c80000);}
+.green{background: linear-gradient(180deg,#4caf50,#00722a);}
+.blue{background: linear-gradient(180deg,#2196f3,#005bb5);}
+.yellow{background: linear-gradient(180deg,#ffd54f,#c78e00); color:#111;}
+.action{font-size:28px;}
+.card-back{
+  width:var(--card-width); height:var(--card-height);
+  border-radius:var(--card-radius);
+  background:linear-gradient(45deg,#444,#111);
+  display:flex; align-items:center; justify-content:center;
+  font-weight:900; letter-spacing:1px; color:#fff;
+}
+
+/* ----------------- CENTER AREA ----------------- */
+.center-area{
+  display:flex; flex-direction:column; align-items:center; gap:10px;
+  width:100%;
+}
+.pile-row{
+  display:flex; gap:10px; justify-content:center;
+}
+.deck, .discard{
+  width:100px; height:140px;
+  border-radius:12px;
+  display:flex; align-items:center; justify-content:center;
+  box-shadow:0 8px 20px rgba(0,0,0,0.6);
+}
+.deck{background:linear-gradient(180deg,#0ea5e9,#0369a1);}
+.discard{background:linear-gradient(180deg,#111827,#0b1220);border:2px solid rgba(255,255,255,0.1);}
+.log{
+  width:90%;
+  min-height:60px;
+  background:var(--glass);
+  padding:8px;
+  border-radius:8px;
+  text-align:center;
+  font-size:13px;
+}
+
+/* ----------------- FOOTER ----------------- */
+.footer{
+  text-align:center;
+  padding:6px;
+  font-size:12px;
+  color:#9ca3af;
+}
+
+/* ----------------- RESPONSIVE ----------------- */
+@media(max-width:600px){
+  :root{
+    --card-width:65px;
+    --card-height:95px;
+  }
+  .topbar{flex-direction:column; align-items:flex-start; gap:6px;}
+}
