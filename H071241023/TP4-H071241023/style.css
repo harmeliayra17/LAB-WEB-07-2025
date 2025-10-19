@@ -1,0 +1,628 @@
+/* Palet warna */
+:root {
+    --primary-blue: #1e3a8a;     
+    --secondary-blue: #3b82f6;   
+    --light-blue: #dbeafe;       
+    --accent-blue: #60a5fa;      
+    --dark-blue: #1e40af;       
+    --white: #ffffff;            
+    --off-white: #f8fafc;        
+    --muted: #64748b;          
+    --shadow: rgba(30, 58, 138, 0.15);      
+    --shadow-dark: rgba(30, 58, 138, 0.3); 
+    --success: #10b981;           
+    --warning: #f59e0b;          
+    --danger: #ef4444;          
+}
+
+/* margin/padding default browser */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    font-family: 'Poppins', system-ui, -apple-system, Arial, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+    background: linear-gradient(135deg, var(--light-blue) 0%, var(--secondary-blue) 100%);
+    color: var(--primary-blue);
+    overflow-x: hidden; /* Hindari overflow akibat transform/animasi */
+}
+
+/* menyembunyikan elemen (dipakai untuk toggle screen) */
+.hidden {
+    display: none !important;
+}
+
+/* Teks pudar */
+.muted {
+    color: var(--muted);
+    font-weight: 500;
+}
+
+/* Efek kaca (glassmorphism) */
+.glass-effect {
+    background: rgba(255, 255, 255, 0.25);         
+    backdrop-filter: blur(12px);                    
+    -webkit-backdrop-filter: blur(12px);            /* Prefix Safari */
+    border: 1px solid rgba(255, 255, 255, 0.18);  
+    box-shadow: 0 8px 32px 0 var(--shadow);        
+}
+
+/* Taruhan awal */
+.betting-screen {
+    display: flex;                  
+    justify-content: center;
+    align-items: center;
+    height: 100vh;                 
+    padding: 20px;                
+}
+
+/* Container taruhan */
+.betting-container {
+    padding: 40px;                  
+    border-radius: 20px;            
+    text-align: center;             
+    max-width: 500px;            
+    width: 100%;
+    animation: fadeIn 0.5s ease-out;
+}
+
+/* Kolom form (jarak antar kontrol) */
+.betting-form {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* Baris saldo awal */
+.balance-info {
+    display: flex;
+    justify-content: center;
+}
+
+/* Saldo awal */
+.balance-card {
+    color: #059669;               
+    padding: 10px 10px;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+/* Group input taruhan dan labelnya */
+.bet-input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Label input taruhan */
+.bet-input-group label {
+    color: var(--primary-blue);
+    font-size: 16px;
+    font-weight: 500;
+}
+
+/* Bingkai input */
+.input-container {
+    border-radius: 12px;
+    padding: 5px;
+}
+
+/* Input angka untuk nilai taruhan awal */
+#initialBetAmount {
+    width: 100%;
+    padding: 15px;
+    border: none;                 
+    border-radius: 10px;
+    font-size: 16px;
+    text-align: center;             
+    background: transparent;        
+    color: var(--primary-blue);
+    font-weight: 500;
+}
+
+/* Placeholder input taruhan */
+#initialBetAmount::placeholder {
+    color: var(--muted);
+}
+
+/* Game board */
+.game-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;      
+    gap: 12px;                
+    min-height: 100vh;       
+    padding: 16px;
+}
+
+/* Header judul */
+.game-header {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;           
+    padding: 0 20px;
+}
+
+/* (Y(UNO)) */
+.game-title {
+    color: var(--primary-blue);
+    margin-bottom: 8px;
+    font-size: 2rem;
+    font-weight: 700;
+    text-shadow: 0 2px 4px var(--shadow); /* Sedikit timbul */
+}
+
+/* Deretan kartu */
+.game-stats {
+    display: flex;
+    gap: 15px;
+}
+
+/* Kartu individual untuk statistik */
+.stat-card {
+    padding: 12px 20px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 100px;
+}
+
+/* Label kecil di stat-card */
+.stat-label {
+    font-size: 12px;
+    color: var(--muted);
+    margin-bottom: 5px;
+}
+
+/* Nilai di stat-card */
+.stat-value {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--primary-blue);
+}
+
+/* Judul section (Bot / Player) */
+.section-title {
+    color: var(--primary-blue);
+    text-align: center;
+    margin: 0 0;
+    font-weight: 600;
+}
+
+/* Baris kartu (bot & player) */
+.cards-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;          /* Agar turun baris saat sempit */
+    padding: 10px;
+}
+
+/* Gaya umum gambar kartu */
+.card-img {
+    height: 90px;
+    width: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px var(--shadow);
+    user-select: none;        /* Cegah seleksi klik ganda */
+    -webkit-user-drag: none;  /* Cegah drag pada Safari */
+    display: block;
+    transition: all 0.3s ease;
+}
+
+/* Variasi ukuran kartu */
+.card-sm {height: 70px;}
+.card-md {height: 100px;}
+.card-lg {height: 110px;}
+
+/* Kartu milik player bersifat interaktif (hover) */
+#playerRow .card-img {
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Efek hover kartu player */
+#playerRow .card-img:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 8px 20px var(--shadow-dark);
+}
+
+/* Indikasi kartu playable (valid untuk diturunkan) */
+.card-img.playable {
+    outline: 3px solid var(--success);
+    box-shadow: 0 0 15px rgba(16, 185, 129, 0.5);
+    animation: pulse 2s infinite;
+}
+
+/* Indikasi kartu unplayable (tidak bisa diturunkan) */
+.card-img.unplayable {
+    opacity: 0.6;
+    cursor: not-allowed;
+    filter: grayscale(0.5);
+}
+
+/* Matikan hover untuk kartu yang tidak bisa dimainkan */
+#playerRow .card-img.unplayable:hover {
+    transform: none;
+}
+
+/* Animasi goyang singkat untuk feedback salah klik/miss */
+@keyframes shakeK {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+    100% { transform: translateX(0); }
+}
+
+/* Animasi fade-in generik (masuk vertikal) */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Kelas pemicu animasi goyang pada kartu player */
+#playerRow .card-img.shake {
+    animation: shakeK 0.4s ease;
+}
+
+/* Container horizontal untuk discard pile & deck */
+.middle-area {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    justify-content: center;
+    margin: 10px 0;
+}
+
+/* Frame stack kartu (discard & deck) */
+.card-stack, .deck-inner {
+    padding: 20px;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Info kecil di bawah deck (sisa kartu) */
+.deck-info {
+    text-align: center;
+    margin-bottom: 4px;
+}
+
+/* Tipografi info deck */
+.deck-info-text {
+    font-size: 12px;
+    color: var(--muted);
+    letter-spacing: 0.3px;
+}
+
+/* Wrapper tumpukan kartu (untuk efek pseudo dalam ::after) */
+.deck-stack {
+    position: relative;
+}
+
+/* Efek inner shadow pada tumpukan deck */
+.deck-stack::after {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    border-radius: 8px;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Side panel floating di kanan atas (desktop) */
+.right-section {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 280px;
+    padding: 20px;
+    border-radius: 16px;
+    text-align: center;
+}
+
+/* Blok “Informasi Permainan” (saldo/taruhan) */
+.game-info {
+    width: 100%;
+    padding: 0;
+}
+
+/* Judul kecil pada blok info */
+.game-info h4 {
+    margin: 0 0 15px 0;
+    color: var(--primary-blue);
+    font-weight: 600;
+}
+
+/* Grid vertical untuk item informasi */
+.info-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Baris label–nilai (saldo/taruhan) */
+.info-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Garis pemisah halus */
+}
+
+/* Penekanan “Total Taruhan” */
+.info-item.total-bet {
+    border-top: 2px solid var(--accent-blue);
+    border-bottom: none;
+    padding-top: 12px;
+    margin-top: 5px;
+    font-weight: 700;
+}
+
+/* Label info (kiri) */
+.info-label {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+/* Nilai info (kanan) */
+.info-value {
+    color: var(--primary-blue);
+    font-weight: 600;
+}
+
+/* Blok status permainan (teks dinamis) */
+.info-section {
+    width: 100%;
+}
+
+/* Judul “Status Permainan” */
+.info-section h4 {
+    margin: 15px 0 10px;
+    color: var(--muted);
+    font-weight: 500;
+}
+
+/* Bubble status (menampung #infoText) */
+.status-message {
+    padding: 15px;
+    border-radius: 10px;
+    min-height: 70px;                
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Base button (utility) */
+.btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;                       
+    border: none;
+    border-radius: 10px;
+    padding: 12px 20px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;                /* Untuk efek kilau ::before */
+}
+
+/* Highlight sweep saat hover */
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    transition: left 0.5s;
+}
+
+/* Gerakkan kilau ke kanan saat hover */
+.btn:hover::before {
+    left: 100%;
+}
+
+/* Tombol utama (aksi primer) */
+.btn-primary {
+    background: var(--primary-blue);
+    color: var(--white);
+    box-shadow: 0 4px 15px var(--shadow);
+}
+
+/* Hover/aktif tombol utama */
+.btn-primary:hover {
+    background: var(--dark-blue);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px var(--shadow-dark);
+}
+
+/* Tombol keluar permainan (aksi berbahaya) */
+.btn-exit {
+    background: var(--danger);
+    color: var(--white);
+    width: 100%;             /* Lebar penuh panel kanan */
+    margin-top: 10px;
+}
+
+/* Hover tombol keluar */
+.btn-exit:hover {
+    background: #dc2626;
+    transform: translateY(-2px);
+}
+
+/* State disabled untuk semua tombol */
+.btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none !important;
+}
+
+/* Ukuran icon di dalam tombol */
+.btn-icon {
+    font-size: 16px;
+}
+
+/* Deretan tombol aksi di bawah kartu player */
+.action-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 20px;
+    flex-wrap: wrap;        /* Agar responsif di layar sempit */
+    width: 100%;
+}
+
+/* Tombol aksi membagi ruang secara merata */
+.action-buttons .btn {
+    flex: 1;
+    min-width: 120px;      
+}
+
+/* Modal saat kartu wild (pilih warna) */
+
+/* Layer modal penuh layar */
+.modal {
+    position: fixed;
+    inset: 0;                     
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;                 /* Di atas konten game */
+}
+
+/* Sembunyikan modal dengan .hidden (util) */
+.modal.hidden {
+    display: none;
+}
+
+/* Backdrop gelap semi-transparan + blur */
+.modal-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+}
+
+/* Kotak dialog modal */
+.modal-dialog {
+    position: relative;
+    color: var(--primary-blue);
+    width: min(90vw, 400px);       
+    padding: 25px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    animation: modalAppear 0.3s ease-out; /* Animasi muncul */
+}
+
+/* Animasi muncul modal (scale + slide) */
+@keyframes modalAppear {
+    from {
+        opacity: 0;
+        transform: scale(0.9) translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+/* Baris tombol tindakan batal */
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+/* Grid pilihan warna 2 kolom */
+.color-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-top: 10px;
+}
+
+/* Kartu tombol warna (wild color) */
+.color-chip {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px var(--shadow);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;              /* Untuk efek hover membesar */
+}
+
+/* Efek hover pada pilihan warna */
+.color-chip:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 8px 20px var(--shadow-dark);
+}
+
+/* Nama warna di atas chip */
+.color-name {
+    color: white;
+    font-weight: 600;
+}
+
+/* Warna spesifik masing-masing chip */
+.color-chip.red {background-color:#c00000;}
+.color-chip.blue {background:#0035c8;}
+.color-chip.green {background:#03a270;}
+.color-chip.yellow {background:#bedf00;}
+
+@media (max-width: 768px) {
+    .game-header {flex-direction: column; gap: 15px;} 
+    .right-section {                                  
+        position: static;
+        width: 100%;
+        max-width: 500px;
+        margin-top: 15px;
+    }
+    .middle-area { gap: 30px; flex-direction: column;} 
+    .action-buttons {flex-direction: column;}           
+    .action-buttons .btn {min-width: auto;}
+    .color-grid {grid-template-columns: 1fr;}         
+    .card-img {height: 80px;}                           
+    .card-sm {height: 60px;}
+    .card-md {height: 90px;}
+    .card-lg {height: 100px;}
+}
+
+/* Ponsel kecil */
+@media (max-width: 480px) {
+    .betting-container {padding: 25px;}                
+    .game-title {font-size: 1.5rem;}                   
+    .cards-row {gap: 8px;}                        
+    .card-img {height: 70px;}
+    .card-sm {height: 50px;}
+    .card-md {height: 80px;}
+    .card-lg {height: 90px;}
+}
