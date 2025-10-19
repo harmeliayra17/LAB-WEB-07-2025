@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <h1 id="title">LApar Ilmu</h1>
+
+    <p class="text-class">ini text 1</p>
+    <p class="text-class">ini text 2</p>
+    <p class="text-class">ini text 3</p>
+
+
+    <div class="flex">
+        <button id="button1" onclick="tampilkanPesan()" class="bg-blue-600">submit</button>
+        <button id="button2" onclick="tampilkanPesan()" class="bg-red-600">Klik Saya</button>
+    </div>
+        <script>
+        function tampilkanPesan() {
+        alert("Tombol berhasil ditekan!");
+        }
+
+        button[1].addEventListener
+        </script>
+
+    <input id="teks" type="text" placeholder="Ketik sesuatu..." />
+
+    <script>
+    let input = document.getElementById("teks");
+
+    input.addEventListener("keydown", function(event) {
+    console.log("Anda menekan tombol:", event.key);
+    });
+    </script>
+
+    <script>  
+        let title = document.getElementById("title")
+        console.log(title);
+        title.textContent = "Belajar JavaScriptDOOM!!!"
+        title.classList.add("bg-blue-600");
+
+        let pClass = document.getElementsByClassName("text-class")
+        pClass[1].style.backgroundColor = "lightblue";
+
+    </script>
+
+</body>
+</html>
