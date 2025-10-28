@@ -1,0 +1,65 @@
+CREATE DATABASE IF NOT EXISTS db_manajemen_proyek;
+USE db_manajemen_proyek;
+
+DROP TABLE IF EXISTS tasks;
+DROP TABLE IF EXISTS projects;
+DROP TABLE IF EXISTS users;
+
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    role ENUM('Super Admin', 'Project Manager', 'Team Member') NOT NULL,
+    project_manager_id INT DEFAULT NULL,
+    FOREIGN KEY (project_manager_id) REFERENCES users(id) ON DELETE SET NULL
+);
+
+CREATE TABLE projects (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nama_proyek VARCHAR(100) NOT NULL,
+    deskripsi TEXT,
+    tanggal_mulai DATE,
+    tanggal_selesai DATE,
+    manager_id INT,
+    FOREIGN KEY (manager_id) REFERENCES users(id) ON DELETE CASCADE
+);
+
+CREATE TABLE tasks (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nama_tugas VARCHAR(100) NOT NULL,
+    deskripsi TEXT,
+    status ENUM('belum', 'proses', 'selesai') DEFAULT 'belum',
+    project_id INT,
+    assigned_to INT,
+    FOREIGN KEY (project_id) REFERENCES projects(id) ON DELETE CASCADE,
+    FOREIGN KEY (assigned_to) REFERENCES users(id) ON DELETE SET NULL
+);
+
+INSERT INTO users (username, password, role, project_manager_id) VALUES
+('superadmin', '$2y$10$PSRSAW4J.kpb2eBpZefEnOz9YVZuGZlntHf1u4LIU/SH8UzwK3Kha', 'Super Admin', NULL),   -- admin123
+('manager1', '$2y$10$J4IXiHPDAo9UxiUsBha9U.T2/uWRJ4/NjSSJX2M6Qr8kzH3yyunvm', 'Project Manager', NULL),  -- manager123
+('manager2', '$2y$10$iUYCw5g.KtKTb.QtAC6Fp.vkEHZBEn2RtuhVFwLW9AJNu4jyz6Rhq', 'Project Manager', NULL),  -- manager456
+('member1', '$2y$10$1a/Q.qLWuyQDTaHGqOSYs.5FtG6dVGs0J7.Tba99TLhkbN/dprncC', 'Team Member', 2),         -- member123 → manager1
+('member2', '$2y$10$KzQXXF6Pf7v07rBChPBxAuYSEsEBeeG2dQ08pPxeSKcNI/.9A9b6K', 'Team Member', 3),         -- member456 → manager2
+('member3', '$2y$10$1UZzd/C.3HZhge1YjxcyjOMgeyTpOFEmoS4phVY6m26cJfcsKWCMu', 'Team Member', 3);         -- member789 → manager2
+
+INSERT INTO projects (nama_proyek, deskripsi, tanggal_mulai, tanggal_selesai, manager_id) VALUES
+('Sistem Informasi Akademik', 'Proyek milik Manager1 untuk pengembangan aplikasi akademik kampus.', '2025-01-10', '2025-04-30', 2),
+('Website Manajemen Tugas', 'Proyek milik Manager1 untuk sistem monitoring tugas.', '2025-02-01', '2025-05-01', 2),
+('Aplikasi Keuangan Desa', 'Proyek milik Manager2 untuk digitalisasi laporan keuangan.', '2025-03-01', '2025-06-30', 3),
+('E-Learning Platform', 'Proyek milik Manager2 untuk sistem pembelajaran daring.', '2025-04-10', '2025-07-10', 3);
+
+INSERT INTO tasks (nama_tugas, deskripsi, status, project_id, assigned_to) VALUES
+-- Tugas untuk proyek milik Manager1
+('Desain Database', 'Membuat struktur database untuk sistem akademik', 'selesai', 1, 4),
+('Buat UI Login', 'Membuat halaman login dengan Tailwind CSS', 'proses', 1, 4),
+('Integrasi CRUD', 'Menghubungkan fitur tambah, edit, hapus data proyek', 'belum', 2, 4),
+-- Tugas untuk proyek milik Manager2
+('Input Data Keuangan', 'Menambahkan fitur input transaksi keuangan desa', 'proses', 3, 5),
+('Validasi Data', 'Mengecek data transaksi agar tidak duplikat', 'belum', 3, 6),
+('Rancang Modul Kelas', 'Membuat modul pembelajaran di e-learning', 'belum', 4, 5),
+('Testing Sistem E-Learning', 'Uji coba sistem dan perbaikan bug', 'belum', 4, 6);
+
+SELECT * FROM users;
+SELECT * FROM projects;
+SELECT * FROM tasks;
